@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Profile from "./Profile";
+import DropDown from "./DropDown";
 
 const NavContainer = styled.div`
   display: flex;
+  flex-direction: column;
   padding: 10px;
-  justify-content: center;
   height: 100%;
   width: 300px;
   background-color: #2f3640;
@@ -16,6 +17,7 @@ const Navigator = () => {
   return (
     <NavContainer>
       <Profile />
+      <DropDown />
     </NavContainer>
   );
 };
