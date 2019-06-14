@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import Home from "./components/Home";
+import GlobalStyles from "./components/GolbalStyles";
 
 class App extends Component {
   render() {
-    return <div>홈화면</div>;
+    return (
+      <>
+        <Home />
+        <GlobalStyles />
+      </>
+    );
   }
 }
 
