@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 const Icon = styled.i`
   position: absolute;
-  left: 25%;
+  left: 30%;
 `;
 
 const ContentItem = styled.li`
   display: flex;
   justify-content: center;
-  position: relative;
   width: 100%;
+  position: relative;
   cursor: pointer;
 `;
 

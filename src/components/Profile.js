@@ -17,7 +17,7 @@ const UserImg = styled.img`
   max-height: 70px;
   max-width: 70px;
   border-radius: 50%;
-  border: 4px solid #f5f6fa;
+  border: 6px solid #f5f6fa;
 `;
 
 const UserName = styled.span``;
@@ -27,7 +27,7 @@ const Profile = () => {
     <ProContainer>
       <Content>
         <UserImg src="https://avatars2.githubusercontent.com/u/39004543?s=460&v=4" />
-        <UserName>허정호</UserName>
+        <UserName>허정호 님</UserName>
       </Content>
     </ProContainer>
   );

@@ -6,14 +6,14 @@ const Container = styled.div`
   display: flex;
   height: 35%;
   flex-direction: column;
+  align-items: center;
 `;
 
 const ContentContainer = styled.ul`
   li:not(:last-child) {
     margin-bottom: 10px;
   }
-  display: flex;
-  justify-content: center;
+  width: 100%;
 `;
 
 const TitleContainer = styled.div`
@@ -21,6 +21,7 @@ const TitleContainer = styled.div`
   justify-content: space-around;
   margin-bottom: 15px;
   cursor: pointer;
+  width: 100%;
 `;
 const Title = styled.span``;
 const Icon = styled.i``;
