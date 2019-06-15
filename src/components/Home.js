@@ -20,7 +20,9 @@ const Home = ({
   loaded,
   onLoadedImg,
   clicked,
-  onClicked
+  onClicked,
+  onSelected,
+  selected
 }) => {
   return (
     <HomeContainer id="home">
@@ -31,6 +33,8 @@ const Home = ({
           onSelectedItem={onSelectedItem}
           indActivist={indActivist}
           onClicked={onClicked}
+          onSelected={onSelected}
+          selected={selected}
         />
         <Content
           loaded={loaded}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import List from "./List";
 
@@ -9,6 +9,7 @@ const Container = styled.div`
 `;
 
 const ContentContainer = styled.ul`
+  display: ${props => (props.selected ? "block" : "none")};
   li:not(:last-child) {
     margin-bottom: 10px;
   }
@@ -25,26 +26,29 @@ const TitleContainer = styled.div`
 const Title = styled.span``;
 const Icon = styled.i``;
 
-const DropDown = ({ indActivist, onSelectedItem }) => {
-  return (
-    <Container>
-      <TitleContainer>
-        <Icon className="fas fa-clipboard-list" />
-        <Title>독립운동가</Title>
-        <Icon className="fas fa-sort-down" />
-      </TitleContainer>
-      <ContentContainer>
-        {indActivist.map((item, index) => (
-          <List
-            key={index}
-            id={index}
-            item={item}
-            onSelectedItem={onSelectedItem}
-          />
-        ))}
-      </ContentContainer>
-    </Container>
-  );
-};
+class DropDown extends Component {
+  render() {
+    const { onSelected, selected, indActivist, onSelectedItem } = this.props;
+    return (
+      <Container>
+        <TitleContainer onClick={onSelected}>
+          <Icon className="fas fa-clipboard-list" />
+          <Title>독립운동가</Title>
+          <Icon className="fas fa-sort-down" />
+        </TitleContainer>
+        <ContentContainer selected={selected}>
+          {indActivist.map((item, index) => (
+            <List
+              key={index}
+              id={index}
+              item={item}
+              onSelectedItem={onSelectedItem}
+            />
+          ))}
+        </ContentContainer>
+      </Container>
+    );
+  }
+}
 
 export default DropDown;

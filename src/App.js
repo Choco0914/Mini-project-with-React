@@ -4,7 +4,7 @@ import GlobalStyles from "./components/GolbalStyles";
 import { IndActivist } from "./data";
 
 class App extends Component {
-  state = { selectedItem: 0, loaded: false, clicked: true };
+  state = { selectedItem: 0, loaded: false, clicked: true, selected: true };
 
   onSelectedItem = event => {
     this.setState({
@@ -26,6 +26,17 @@ class App extends Component {
       this.setState({ clicked: true });
     }
   };
+  onSelected = () => {
+    if (this.state.selected) {
+      this.setState({
+        selected: false
+      });
+    } else {
+      this.setState({
+        selected: true
+      });
+    }
+  };
 
   render() {
     const { selectedItem } = this.state;
@@ -39,6 +50,8 @@ class App extends Component {
           onLoadedImg={this.onLoadedImg}
           onClicked={this.onClicked}
           clicked={this.state.clicked}
+          onSelected={this.onSelected}
+          selected={this.state.selected}
         />
         <GlobalStyles />
       </>

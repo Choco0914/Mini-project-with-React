@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import MarkDown from "react-markdown";
 import styled from "styled-components";
+import Loader from "./Loader";
 
 const Container = styled.div`
   position: ${props => (props.clicked ? "static" : "absolute")};
@@ -72,7 +73,7 @@ class Content extends Component {
           </ContentContainer>
         ) : (
           <ContentContainer>
-            Loading...
+            <Loader />
             <Img ref={this.imgRef} src={photoSrc} />
           </ContentContainer>
         )}
