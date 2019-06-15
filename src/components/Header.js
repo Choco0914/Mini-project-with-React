@@ -14,14 +14,21 @@ const MenuButton = styled.i`
   left: 2%;
   cursor: pointer;
 `;
+
+const CheckContainer = styled.div`
+  display: ${props => (props.clicked ? "none" : "block")};
+`;
+
 const Title = styled.span`
   margin-left: 250px;
 `;
 
-const Header = () => {
+const Header = ({ clicked, onClicked }) => {
   return (
     <HomeTitle>
-      <MenuButton className="fas fa-bars" />
+      <CheckContainer onClick={onClicked} clicked={clicked}>
+        <MenuButton className="fas fa-bars" />
+      </CheckContainer>
       <Title>허정호님의 홈페이지</Title>
     </HomeTitle>
   );

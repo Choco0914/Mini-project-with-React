@@ -4,7 +4,7 @@ import Profile from "./Profile";
 import DropDown from "./DropDown";
 
 const NavContainer = styled.div`
-  display: flex;
+  display: ${props => (props.clicked ? "flex" : "none")};
   flex-direction: column;
   padding: 10px;
   height: 100vh;
@@ -28,9 +28,9 @@ const CloseBtn = styled.div`
   cursor: pointer;
 `;
 
-const Navigator = ({ indActivist, onSelectedItem, onClicked }) => {
+const Navigator = ({ indActivist, onSelectedItem, onClicked, clicked }) => {
   return (
-    <NavContainer>
+    <NavContainer clicked={clicked}>
       <Profile />
       <DropDown indActivist={indActivist} onSelectedItem={onSelectedItem} />
       <CloseBtn onClick={onClicked}>메뉴 닫기</CloseBtn>
