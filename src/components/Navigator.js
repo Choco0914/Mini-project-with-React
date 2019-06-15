@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Profile from "./Profile";
 import DropDown from "./DropDown";
-import { inherits } from "util";
 
 const NavContainer = styled.div`
   display: flex;
