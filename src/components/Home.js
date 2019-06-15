@@ -13,7 +13,8 @@ const BodyContainer = styled.div`
   height: 100%;
 `;
 
-const Home = () => {
+const Home = ({ indActivist }) => {
+  console.log(indActivist);
   return (
     <HomeContainer id="home">
       <Header />
