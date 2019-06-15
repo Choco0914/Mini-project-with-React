@@ -18,13 +18,20 @@ const Home = ({
   onSelectedItem,
   selectedItem,
   loaded,
-  onLoadedImg
+  onLoadedImg,
+  clicked,
+  onClicked
 }) => {
   return (
     <HomeContainer id="home">
       <Header />
       <BodyContainer>
-        <Navigator onSelectedItem={onSelectedItem} indActivist={indActivist} />
+        <Navigator
+          clicked={clicked}
+          onSelectedItem={onSelectedItem}
+          indActivist={indActivist}
+          onClicked={onClicked}
+        />
         <Content
           loaded={loaded}
           selectedItem={selectedItem}
