@@ -4,10 +4,16 @@ import GlobalStyles from "./components/GolbalStyles";
 import { IndActivist } from "./data";
 
 class App extends Component {
+  state = { selectedItem: 0 };
+
+  onSelectedItem = event => {
+    console.log(event.target.id);
+  };
+
   render() {
     return (
       <>
-        <Home indActivist={IndActivist} />
+        <Home onSelectedItem={this.onSelectedItem} indActivist={IndActivist} />
         <GlobalStyles />
       </>
     );

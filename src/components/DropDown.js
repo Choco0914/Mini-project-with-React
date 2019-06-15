@@ -25,7 +25,7 @@ const TitleContainer = styled.div`
 const Title = styled.span``;
 const Icon = styled.i``;
 
-const DropDown = () => {
+const DropDown = ({ indActivist, onSelectedItem }) => {
   return (
     <Container>
       <TitleContainer>
@@ -34,7 +34,14 @@ const DropDown = () => {
         <Icon className="fas fa-sort-down" />
       </TitleContainer>
       <ContentContainer>
-        <List />
+        {indActivist.map((item, index) => (
+          <List
+            key={index}
+            id={index}
+            item={item}
+            onSelectedItem={onSelectedItem}
+          />
+        ))}
       </ContentContainer>
     </Container>
   );

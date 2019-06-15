@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 
 const Icon = styled.i`
@@ -14,13 +14,27 @@ const ContentItem = styled.li`
   cursor: pointer;
 `;
 
-const List = () => {
-  return (
-    <ContentItem>
-      <Icon className="fas fa-clipboard-list" />
-      첫번째
-    </ContentItem>
-  );
-};
+class List extends Component {
+  constructor(props) {
+    super(props);
+
+    this.listRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.listRef.current.addEventListener("click", this.props.onSelectedItem);
+  }
+
+  render() {
+    const { id, item } = this.props;
+    const ref = this.listRef;
+    return (
+      <ContentItem id={id} ref={ref}>
+        <Icon className="fas fa-clipboard-list" />
+        {item.name}
+      </ContentItem>
+    );
+  }
+}
 
 export default List;

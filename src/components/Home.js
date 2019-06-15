@@ -13,13 +13,12 @@ const BodyContainer = styled.div`
   height: 100%;
 `;
 
-const Home = ({ indActivist }) => {
-  console.log(indActivist);
+const Home = ({ indActivist, onSelectedItem }) => {
   return (
     <HomeContainer id="home">
       <Header />
       <BodyContainer>
-        <Navigator />
+        <Navigator onSelectedItem={onSelectedItem} indActivist={indActivist} />
         <Content />
       </BodyContainer>
     </HomeContainer>

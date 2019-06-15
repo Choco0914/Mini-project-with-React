@@ -28,11 +28,11 @@ const CloseBtn = styled.div`
   cursor: pointer;
 `;
 
-const Navigator = () => {
+const Navigator = ({ indActivist, onSelectedItem }) => {
   return (
     <NavContainer>
       <Profile />
-      <DropDown />
+      <DropDown indActivist={indActivist} onSelectedItem={onSelectedItem} />
       <CloseBtn>메뉴 닫기</CloseBtn>
     </NavContainer>
   );
