@@ -30,7 +30,7 @@ class List extends Component {
     const ref = this.listRef;
     return (
       <ContentItem id={id} ref={ref}>
-        <Icon className="fas fa-clipboard-list" />
+        <Icon className="fas fa-clipboard-list" id={id} ref={ref} />
         {item.name}
       </ContentItem>
     );
