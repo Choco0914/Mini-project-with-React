@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
 
 const globalStyles = createGlobalStyle`
-    ${reset};
     a{
         text-decoration:none;
         color: inherit;
@@ -14,7 +12,11 @@ const globalStyles = createGlobalStyle`
     body, 
     #root {
         overflow: hidden;
+        min-height: 330px;
+        min-width: 330px;
         height: 100%;
+        padding: 0;
+        margin: 0;
     }
 `;
 

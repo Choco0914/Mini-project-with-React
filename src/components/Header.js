@@ -14,7 +14,9 @@ const MenuButton = styled.i`
   left: 2%;
   cursor: pointer;
 `;
-const Title = styled.span``;
+const Title = styled.span`
+  margin-left: 250px;
+`;
 
 const Header = () => {
   return (

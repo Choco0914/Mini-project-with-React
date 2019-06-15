@@ -15,7 +15,7 @@ const BodyContainer = styled.div`
 
 const Home = () => {
   return (
-    <HomeContainer>
+    <HomeContainer id="home">
       <Header />
       <BodyContainer>
         <Navigator />

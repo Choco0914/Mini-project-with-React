@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const ProContainer = styled.div`
-  height: 35%;
+  height: 30%;
 `;
 
 const Content = styled.div`
   display: flex;
   margin-top: 20px;
-  width: 80%;
+  width: 200px;
   justify-content: space-around;
   align-items: center;
 `;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Icon = styled.i`
   position: absolute;
-  left: 30%;
+  left: 10%;
 `;
 
 const ContentItem = styled.li`

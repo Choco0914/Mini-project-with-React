@@ -3,8 +3,7 @@ import styled from "styled-components";
 import List from "./List";
 
 const Container = styled.div`
-  display: flex;
-  height: 35%;
+  height: 30%;
   flex-direction: column;
   align-items: center;
 `;

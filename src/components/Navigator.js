@@ -7,8 +7,8 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  height: 100%;
-  width: 300px;
+  height: 100vh;
+  min-width: 250px;
   background-color: #2f3640;
   color: #ecf0f1;
   position: relative;
