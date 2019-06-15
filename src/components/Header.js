@@ -16,6 +16,7 @@ const MenuButton = styled.i`
 `;
 
 const CheckContainer = styled.div`
+  transition: 5s ease-in-out;
   display: ${props => (props.clicked ? "none" : "block")};
 `;
 

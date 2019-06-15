@@ -37,6 +37,7 @@ const Home = ({
           selectedItem={selectedItem}
           indActivist={indActivist}
           onLoadedImg={onLoadedImg}
+          clicked={clicked}
         />
       </BodyContainer>
     </HomeContainer>

@@ -3,6 +3,7 @@ import MarkDown from "react-markdown";
 import styled from "styled-components";
 
 const Container = styled.div`
+  position: ${props => (props.clicked ? "static" : "absolute")};
   width: 100%;
   min-width: 500px;
   display: flex;
@@ -49,7 +50,7 @@ class Content extends Component {
   }
 
   render() {
-    const { indActivist, selectedItem, loaded } = this.props;
+    const { indActivist, selectedItem, loaded, clicked } = this.props;
     const { photoSrc } = indActivist[selectedItem];
     const Name = `# ${indActivist[selectedItem].name}`;
     const Hungyeog = `## 훈격\n\n* ${indActivist[selectedItem].hungyeog}`;
@@ -58,7 +59,7 @@ class Content extends Component {
       indActivist[selectedItem].introduction
     }`;
     return (
-      <Container>
+      <Container clicked={clicked}>
         {loaded ? (
           <ContentContainer>
             <Img ref={this.imgRef} src={photoSrc} />

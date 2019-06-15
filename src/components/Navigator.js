@@ -4,7 +4,10 @@ import Profile from "./Profile";
 import DropDown from "./DropDown";
 
 const NavContainer = styled.div`
-  display: ${props => (props.clicked ? "flex" : "none")};
+  opacity: ${props => (props.clicked ? 1 : 0)};
+  transition: all 0.5s linear;
+  visibility: ${props => (props.clicked ? "visible" : "hidden")};
+  display: flex;
   flex-direction: column;
   padding: 10px;
   height: 100vh;
