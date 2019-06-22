@@ -25,7 +25,7 @@ const Home = ({
   selected
 }) => {
   return (
-    <HomeContainer id="home">
+    <HomeContainer>
       <Header onClicked={onClicked} clicked={clicked} />
       <BodyContainer>
         <Navigator

@@ -22,6 +22,7 @@ const ContentContainer = styled.div`
 `;
 
 const Img = styled.img`
+  display: ${props => (props.loaded ? "block" : "none")};
   align-self: center;
   width: 110px;
   top: 0;
@@ -63,7 +64,7 @@ class Content extends Component {
       <Container clicked={clicked}>
         {loaded ? (
           <ContentContainer>
-            <Img ref={this.imgRef} src={photoSrc} />
+            <Img ref={this.imgRef} src={photoSrc} loaded={loaded} />
             <Description>
               <MarkDown source={Name} />
               <MarkDown source={Hungyeog} />
@@ -74,7 +75,7 @@ class Content extends Component {
         ) : (
           <ContentContainer>
             <Loader />
-            <Img ref={this.imgRef} src={photoSrc} />
+            <Img ref={this.imgRef} src={photoSrc} loaded={loaded} />
           </ContentContainer>
         )}
       </Container>

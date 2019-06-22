@@ -14,9 +14,11 @@ class App extends Component {
   };
 
   onLoadedImg = () => {
-    this.setState({
-      loaded: true
-    });
+    if (!this.state.loaded) {
+      this.setState({
+        loaded: true
+      });
+    }
   };
 
   onClicked = () => {
