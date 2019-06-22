@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import MarkDown from "react-markdown";
 import styled from "styled-components";
 import Loader from "./Loader";
@@ -36,51 +36,38 @@ const Description = styled.div`
   }
 `;
 
-class Content extends Component {
-  constructor(props) {
-    super(props);
-
-    this.imgRef = React.createRef();
-  }
-
-  componentDidMount() {
-    this.imgRef.current.addEventListener("load", this.props.onLoadedImg);
-  }
-
-  componentDidUpdate() {
-    this.imgRef.current.addEventListener("load", this.props.onLoadedImg);
-  }
-
-  render() {
-    const { indActivist, selectedItem, loaded, clicked } = this.props;
-    const { photoSrc } = indActivist[selectedItem];
-    const Name = `# ${indActivist[selectedItem].name}`;
-    const Hungyeog = `## 훈격\n\n* ${indActivist[selectedItem].hungyeog}`;
-    const Seohun = `## 서훈년도\n\n* ${indActivist[selectedItem].seohun}`;
-    const Introduction = `## 서문\n\n ${
-      indActivist[selectedItem].introduction
-    }`;
-    return (
-      <Container clicked={clicked}>
-        {loaded ? (
-          <ContentContainer>
-            <Img ref={this.imgRef} src={photoSrc} loaded={loaded} />
-            <Description>
-              <MarkDown source={Name} />
-              <MarkDown source={Hungyeog} />
-              <MarkDown source={Seohun} />
-              <MarkDown source={Introduction} />
-            </Description>
-          </ContentContainer>
-        ) : (
-          <ContentContainer>
-            <Loader />
-            <Img ref={this.imgRef} src={photoSrc} loaded={loaded} />
-          </ContentContainer>
-        )}
-      </Container>
-    );
-  }
-}
+const Content = ({
+  indActivist,
+  selectedItem,
+  loaded,
+  clicked,
+  onLoadedImg
+}) => {
+  const { photoSrc } = indActivist[selectedItem],
+    Name = `# ${indActivist[selectedItem].name}`,
+    Hungyeog = `## 훈격\n\n* ${indActivist[selectedItem].hungyeog}`,
+    Seohun = `## 서훈년도\n\n* ${indActivist[selectedItem].seohun}`,
+    Introduction = `## 서문\n\n ${indActivist[selectedItem].introduction}`;
+  return (
+    <Container clicked={clicked}>
+      {loaded ? (
+        <ContentContainer>
+          <Img onLoad={onLoadedImg} src={photoSrc} loaded={loaded} />
+          <Description>
+            <MarkDown source={Name} />
+            <MarkDown source={Hungyeog} />
+            <MarkDown source={Seohun} />
+            <MarkDown source={Introduction} />
+          </Description>
+        </ContentContainer>
+      ) : (
+        <ContentContainer>
+          <Loader />
+          <Img onLoad={onLoadedImg} src={photoSrc} loaded={loaded} />
+        </ContentContainer>
+      )}
+    </Container>
+  );
+};
 
 export default Content;
