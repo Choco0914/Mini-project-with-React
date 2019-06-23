@@ -40,13 +40,7 @@ const Navigator = () => {
         return (
           <NavContainer clicked={clicked}>
             <Profile />
-            <DropDown
-              indActivist={indActivist}
-              onSelectedItem={onSelectedItem}
-              clicked={clicked}
-              onSelected={onSelected}
-              selected={selected}
-            />
+            <DropDown />
             <CloseBtn onClick={onClicked}>메뉴 닫기</CloseBtn>
           </NavContainer>
         );
