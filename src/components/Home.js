@@ -13,36 +13,13 @@ const BodyContainer = styled.div`
   height: 100%;
 `;
 
-const Home = ({
-  indActivist,
-  onSelectedItem,
-  selectedItem,
-  loaded,
-  onLoadedImg,
-  clicked,
-  onClicked,
-  onSelected,
-  selected
-}) => {
+const Home = () => {
   return (
     <HomeContainer>
-      <Header onClicked={onClicked} clicked={clicked} />
+      <Header />
       <BodyContainer>
-        <Navigator
-          clicked={clicked}
-          onSelectedItem={onSelectedItem}
-          indActivist={indActivist}
-          onClicked={onClicked}
-          onSelected={onSelected}
-          selected={selected}
-        />
-        <Content
-          loaded={loaded}
-          selectedItem={selectedItem}
-          indActivist={indActivist}
-          onLoadedImg={onLoadedImg}
-          clicked={clicked}
-        />
+        <Navigator />
+        <Content />
       </BodyContainer>
     </HomeContainer>
   );

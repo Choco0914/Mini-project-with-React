@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Profile from "./Profile";
 import DropDown from "./DropDown";
+import Store from "./store";
 
 const NavContainer = styled.div`
   opacity: ${props => (props.clicked ? 1 : 0)};
@@ -31,26 +32,26 @@ const CloseBtn = styled.div`
   cursor: pointer;
 `;
 
-const Navigator = ({
-  indActivist,
-  onSelectedItem,
-  onClicked,
-  clicked,
-  onSelected,
-  selected
-}) => {
+const Navigator = () => {
   return (
-    <NavContainer clicked={clicked}>
-      <Profile />
-      <DropDown
-        indActivist={indActivist}
-        onSelectedItem={onSelectedItem}
-        clicked={clicked}
-        onSelected={onSelected}
-        selected={selected}
-      />
-      <CloseBtn onClick={onClicked}>메뉴 닫기</CloseBtn>
-    </NavContainer>
+    <Store.Consumer>
+      {store => {
+        const { clicked, onClicked } = store;
+        return (
+          <NavContainer clicked={clicked}>
+            <Profile />
+            <DropDown
+              indActivist={indActivist}
+              onSelectedItem={onSelectedItem}
+              clicked={clicked}
+              onSelected={onSelected}
+              selected={selected}
+            />
+            <CloseBtn onClick={onClicked}>메뉴 닫기</CloseBtn>
+          </NavContainer>
+        );
+      }}
+    </Store.Consumer>
   );
 };
 

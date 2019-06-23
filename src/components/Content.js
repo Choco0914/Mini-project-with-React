@@ -1,7 +1,9 @@
 import React from "react";
+import Store from "./store";
 import MarkDown from "react-markdown";
 import styled from "styled-components";
 import Loader from "./Loader";
+import { createFrom } from "utils";
 
 const Container = styled.div`
   position: ${props => (props.clicked ? "static" : "absolute")};
@@ -36,37 +38,41 @@ const Description = styled.div`
   }
 `;
 
-const Content = ({
-  indActivist,
-  selectedItem,
-  loaded,
-  clicked,
-  onLoadedImg
-}) => {
-  const { photoSrc } = indActivist[selectedItem],
-    Name = `# ${indActivist[selectedItem].name}`,
-    Hungyeog = `## 훈격\n\n* ${indActivist[selectedItem].hungyeog}`,
-    Seohun = `## 서훈년도\n\n* ${indActivist[selectedItem].seohun}`,
-    Introduction = `## 서문\n\n ${indActivist[selectedItem].introduction}`;
+const Content = () => {
   return (
-    <Container clicked={clicked}>
-      {loaded ? (
-        <ContentContainer>
-          <Img onLoad={onLoadedImg} src={photoSrc} loaded={loaded} />
-          <Description>
-            <MarkDown source={Name} />
-            <MarkDown source={Hungyeog} />
-            <MarkDown source={Seohun} />
-            <MarkDown source={Introduction} />
-          </Description>
-        </ContentContainer>
-      ) : (
-        <ContentContainer>
-          <Loader />
-          <Img onLoad={onLoadedImg} src={photoSrc} loaded={loaded} />
-        </ContentContainer>
-      )}
-    </Container>
+    <Store.Consumer>
+      {store => {
+        const {
+            clicked,
+            onLoadedImg,
+            indActivist,
+            loaded,
+            selectedItem
+          } = store,
+          { photoSrc } = indActivist[selectedItem];
+        const form = createFrom(indActivist, selectedItem);
+        return (
+          <Container clicked={clicked}>
+            {loaded ? (
+              <ContentContainer>
+                <Img onLoad={onLoadedImg} src={photoSrc} loaded={loaded} />
+                <Description>
+                  <MarkDown source={form.name} />
+                  <MarkDown source={form.hungyeog} />
+                  <MarkDown source={form.seohun} />
+                  <MarkDown source={form.introduction} />
+                </Description>
+              </ContentContainer>
+            ) : (
+              <ContentContainer>
+                <Loader />
+                <Img onLoad={onLoadedImg} src={photoSrc} loaded={loaded} />
+              </ContentContainer>
+            )}
+          </Container>
+        );
+      }}
+    </Store.Consumer>
   );
 };
 

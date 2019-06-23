@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Store from "./store";
 
 const HomeTitle = styled.div`
   display: flex;
@@ -24,14 +25,21 @@ const Title = styled.span`
   margin-left: 250px;
 `;
 
-const Header = ({ clicked, onClicked }) => {
+const Header = () => {
   return (
-    <HomeTitle>
-      <CheckContainer onClick={onClicked} clicked={clicked}>
-        <MenuButton className="fas fa-bars" />
-      </CheckContainer>
-      <Title>허정호님의 홈페이지</Title>
-    </HomeTitle>
+    <Store.Consumer>
+      {store => {
+        const { clicked, onClicked } = store;
+        return (
+          <HomeTitle>
+            <CheckContainer onClick={onClicked} clicked={clicked}>
+              <MenuButton className="fas fa-bars" />
+            </CheckContainer>
+            <Title>허정호님의 홈페이지</Title>
+          </HomeTitle>
+        );
+      }}
+    </Store.Consumer>
   );
 };
 
